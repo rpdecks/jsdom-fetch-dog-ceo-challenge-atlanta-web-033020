@@ -51,36 +51,60 @@ function getBreeds(e){
 
 function rendersBreed(breedObj){
     // Get the image ary from the data
-    let breedAry = Object.entries(breedObj)[0][1];
-    // console.log(breedAry);
-    // debugger;
-
-
-
-
+    let breedAry = breedObj.message;
     let listParent = document.getElementById('dog-breeds')
-    for (let i = 0; i < breedAry.length; i++){
+    // loop over outer array to get all the breeds on the page
+    for (let breed in breedAry) {
         // Create an element => img tag
         let listItem = document.createElement('li')
+        let ulTag = document.createElement('ul')
         // Set the source => image source
-        listItem.innerText = breedAry[i]
+        listItem.innerText = breed
+        // loop over outer array to get all the breeds on the page
+        breedAry[breed].forEach(function(subBreed){
+            let subLi = document.createElement('li')
+            subLi.innerText = subBreed
+            // attach to the UL tag
+            ulTag.appendChild(subLi)
+    })
+        // attach to the container 
         listParent.appendChild(listItem)
-    };
-}
-function find(array, criteriaFn) {
-    let current = array
-    let next = []
-    while (current || current === 0) {
-      if (criteriaFn(current)) {
-        return current
-      }
-      if (Array.isArray(current)) {
-        for (let i = 0; i < current.length; i++) {
-          next.push(current[i])
-        }
-      }
-      current = next.shift()
+        // attach to the li tag
+        listItem.appendChild(ulTag)
     }
-    return null
-  }
+};
 
+
+// function arrayBreeds(array){
+//     let result = [];
+//     for(i = 0; i < array.length; i++){
+//         if (Array.isArray(result[i])) {
+//             arrayBreeds(result[i])
+//         } else {
+
+//         }
+
+//     }
+// }
+
+// function criteriaFn(n) {
+//     return (typeof n === 'number' && n > 5);
+// }
+
+// // function find(array, criteriaFn) {
+// function arrayBreeds(array){
+//     let current = array
+//     let next = []
+//     while (current || current === 0) {
+// //       if (criteriaFn(current)) {
+// //         return current
+// //       }
+// //       if (Array.isArray(current)) {
+// //         for (let i = 0; i < current.length; i++) {
+// //           next.push(current[i])
+// //         }
+// //       }
+// //       current = next.shift()
+// //     }
+// //     return null
+// }
