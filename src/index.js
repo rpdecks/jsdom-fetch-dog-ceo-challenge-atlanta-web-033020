@@ -59,9 +59,11 @@ function rendersBreed(breedObj){
         let ulTag = document.createElement('ul')
         // Set the source => image source
         listItem.innerText = breed
+        changeClickedFontColor(listItem, "yellow")
         // loop over outer array to get all the breeds on the page
         breedAry[breed].forEach(function(subBreed){
             let subLi = document.createElement('li')
+            changeClickedFontColor(subLi, "blue")
             subLi.innerText = subBreed
             // attach to the UL tag
             ulTag.appendChild(subLi)
@@ -72,3 +74,9 @@ function rendersBreed(breedObj){
         listItem.appendChild(ulTag)
     }
 };
+
+function changeClickedFontColor(tag, color){
+    tag.addEventListener('click', () => {
+        tag.style = `color: ${color}`
+    })
+}
