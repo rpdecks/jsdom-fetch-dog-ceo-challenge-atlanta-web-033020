@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     console.log('DOM fully loaded and parsed');
 });
 
-console.log('%c HI', 'color: firebrick')
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 
@@ -73,38 +72,3 @@ function rendersBreed(breedObj){
         listItem.appendChild(ulTag)
     }
 };
-
-
-// function arrayBreeds(array){
-//     let result = [];
-//     for(i = 0; i < array.length; i++){
-//         if (Array.isArray(result[i])) {
-//             arrayBreeds(result[i])
-//         } else {
-
-//         }
-
-//     }
-// }
-
-// function criteriaFn(n) {
-//     return (typeof n === 'number' && n > 5);
-// }
-
-// // function find(array, criteriaFn) {
-// function arrayBreeds(array){
-//     let current = array
-//     let next = []
-//     while (current || current === 0) {
-// //       if (criteriaFn(current)) {
-// //         return current
-// //       }
-// //       if (Array.isArray(current)) {
-// //         for (let i = 0; i < current.length; i++) {
-// //           next.push(current[i])
-// //         }
-// //       }
-// //       current = next.shift()
-// //     }
-// //     return null
-// }
